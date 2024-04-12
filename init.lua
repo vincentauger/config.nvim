@@ -154,7 +154,7 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- Jess Archer's suggestions
+-- Jess Archer's config suggestions
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
@@ -174,6 +174,20 @@ vim.opt.confirm = true -- ask for confirmation instead of erroring
 -- Save and quick key maps
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save buffer' })
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Close buffer' })
+
+vim.keymap.set('n', 'q:', ':q<CR>')
+vim.keymap.set('v', 'p', '"_dP')
+
+vim.keymap.set('i', ';;', '<Esc>A;')
+vim.keymap.set('i', ',,', '<Esc>A,')
+
+-- Move lines up and down
+vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
+vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
+vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
+vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
+vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
+vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
